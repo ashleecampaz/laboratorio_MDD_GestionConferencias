@@ -6,6 +6,6 @@ well as custom/explicit components. Using Maven.
 
 The following sections will guide you in building and testing the project. 
 
-**Prerequisites**: JDK 1.8 or JDK 12 (Think versions between this two should work too)
+**Prerequisites**: JDK 1.8 or JDK 12 
 
 
