@@ -4,55 +4,48 @@
  */
 package myjavapackage.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.manosbatsis.scrudbeans.api.mdd.annotation.model.ScrudBean;
 import com.github.manosbatsis.scrudbeans.model.AbstractHibernateModel;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import org.javers.core.metamodel.annotation.DiffIgnore;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
-import java.util.List;
 /**
  *
  * @author Ashlee Campaz
  */
-
-
-
 @Entity
-@Table (name = "Conference")
+@Table (name = "Lecturer")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 @ScrudBean
-@Schema(name = "Conferencia", description = "A model representing an basic conference")
-public class Conference extends AbstractHibernateModel<String>{
- 
+@Schema(name = "Lecturer", description = "A model representing an basic lecturer")
+public class Lecturer extends AbstractHibernateModel<String>{
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
-    private String title;
-    private String description;
-    private LocalDateTime date;
+    private String name;
+    private String lastName;
+    private String email;
+    private String organization;
+    private String researchfields; 
     
-    @OneToMany(mappedBy = "conference", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Session> sessions;
-
-    
-
-
+    @OneToMany(mappedBy = "lecturer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Session> sessions; 
 }
