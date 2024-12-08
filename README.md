@@ -5,11 +5,11 @@ Este proyecto contiene un microservicio creado con springboot y la tecnologia MD
 
 El proyecto fue construido basandose en la siguiente modelo:
 
-[modelo]: etc/img/modelo.png "Modelo microservicio de conferencia"
+![modelo]: etc/img/modelo.png "Modelo microservicio de conferencia"
 
 Posteriormente las clases fueron creadas utilizando las notaciones necesarias, observer el siguiente ejemplo con la clase Conference:
 
-[clase-conference] etc/img/definicion_entidad_conference.png "Definicion clase conferencia"
+![clase-conference] etc/img/definicion_entidad_conference.png "Definicion clase conferencia"
 
 
 Una vez creadas todas las entidades, se ejecuto el comando build, lo que provoca la creacion de una carpeta llamada generated-sources/annotations en la carpeta target, la cual contiene todos los componentes necesarios para ofrecer una arquitectura de microservicios, respetando la jerarquia de paquetes de springboot.
